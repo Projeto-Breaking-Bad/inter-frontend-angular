@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BarraAcessibilidadeComponent } from './components/barra-acessibilidade/barra-acessibilidade.component';
-import { GuestEnvironmentComponent } from './user-environments/guest-environment/guest-environment.component';
-import { AdminEnvironmentComponent } from './user-environments/admin-environment/admin-environment.component';
-import { EmpresaEnvironmentComponent } from './user-environments/empresa-environment/empresa-environment.component';
-import { AlunoEnvironmentComponent } from './user-environments/aluno-environment/aluno-environment.component';
+import { AdminEnvironmentComponent } from './admin/admin-environment/admin-environment.component';
+import { AlunoEnvironmentComponent } from './aluno/aluno-environment/aluno-environment.component';
+import { EmpresaEnvironmentComponent } from './empresa/empresa-environment/empresa-environment.component';
+import { GuestEnvironmentComponent } from './guest/guest-environment/guest-environment.component';
+import { HomeGuestComponent } from './guest/home-guest/home-guest.component';
 
 const routes: Routes = [
   {
@@ -33,8 +34,13 @@ const routes: Routes = [
   },
   {
     path: '', component: GuestEnvironmentComponent, children: [
-      { path: 'home', component: BarraAcessibilidadeComponent },
+      { path: 'home', component: HomeGuestComponent },
       { path: 'teste', component: BarraAcessibilidadeComponent },
+      { path: 'vagas', component: BarraAcessibilidadeComponent },
+      { path: 'vagas/:id', component: BarraAcessibilidadeComponent },
+      { path: 'cadastro/aluno', component: BarraAcessibilidadeComponent },
+      { path: 'cadastro/empresa', component: BarraAcessibilidadeComponent },
+      { path: 'login', component: BarraAcessibilidadeComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home' }
     ]
